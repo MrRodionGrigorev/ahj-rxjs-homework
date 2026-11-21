@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RxJS Workspace</title>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <span class="brand">RxJS <span>Workspace</span></span>
+        <nav aria-label="Разделы приложения">
+          <a href="#inbox" aria-current="page">Входящие</a>
+          <a href="#posts">Публикации</a>
+          <a href="#dashboard">Проекты</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section id="inbox" aria-labelledby="inbox-title">
+        <div class="page-heading">
+          <h1 id="inbox-title">Входящие</h1>
+          <p class="polling-note">Обновляются каждые 5 секунд</p>
+        </div>
+        <div class="panel mail-panel">
+          <table aria-label="Входящие сообщения">
+            <thead><tr><th scope="col">Отправитель</th><th scope="col">Тема</th><th scope="col">Получено</th></tr></thead>
+            <tbody></tbody>
+          </table>
+          <p class="empty-note" data-empty>Новых сообщений пока нет.</p>
+        </div>
+      </section>
+
+      <section id="posts" aria-labelledby="posts-title" hidden>
+        <div class="page-heading"><h1 id="posts-title">Публикации</h1></div>
+        <p class="status" role="status" data-post-status></p>
+        <button class="retry" type="button" data-retry-posts hidden>Повторить загрузку</button>
+        <div class="posts" data-posts></div>
+      </section>
+
+      <section id="dashboard" aria-labelledby="dashboard-title" hidden>
+        <div class="page-heading"><h1 id="dashboard-title">Проекты</h1></div>
+        <div class="project-grid">
+          <section class="panel project-panel" aria-labelledby="stats-title">
+            <h2 id="stats-title">Открытые задачи</h2>
+            <ul class="project-list" data-project-stats aria-live="polite"></ul>
+          </section>
+          <section class="panel project-panel" aria-labelledby="tasks-title" data-project-tasks>
+            <h2 id="tasks-title">Задачи проекта</h2>
+            <label for="project" class="project-label">Проект</label>
+            <select id="project"></select>
+            <ul class="project-list"></ul>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
