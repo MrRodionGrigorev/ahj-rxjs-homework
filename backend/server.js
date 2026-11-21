@@ -5,7 +5,7 @@ import { messageRouter, postRouter } from './routes.js';
 
 const app = express();
 const port = Number(process.env.PORT || 8090);
-const host = process.env.HOST || '127.0.0.1';
+const host = process.env.HOST || (process.env.RENDER === 'true' ? '0.0.0.0' : '127.0.0.1');
 const dist = fileURLToPath(new URL('../dist/', import.meta.url));
 const publicApi = cors({ methods: ['GET', 'HEAD'] });
 
